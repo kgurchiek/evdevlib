@@ -1,6 +1,6 @@
 {
   "name": "evdevlib",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A small package for listening to Linux evdev (/dev/input/eventX) device streams in Node.js",
   "keywords": [
     "evdev",

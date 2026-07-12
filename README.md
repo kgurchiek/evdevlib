@@ -3,22 +3,23 @@ A small package for listening to Linux evdev (/dev/input/eventX) device streams 
 
 ## Usage
 ### listDevices([options])
-Lists devices in `/dev/input`.
+Lists available character devices.
 - **options:** An object used to provide optional arguments.
     - **info:** Automatically fetches the device name from `/sys/class/input`.
+    - **path:** Which directory to scan for devices (default: `/dev/input`).
 
 Example:
 ```js
 import { listDevices } from 'evdevlib';
 
-console.log(listDevices()); // Prints: [ { device: 'event0' }]
-console.log(listDevices({ info: true })); // Prints: [ { device: 'event0', name: 'Mouse' }]
+console.log(listDevices()); // Prints: [ { path: '/dev/input/event0' }]
+console.log(listDevices({ info: true })); // Prints: [ { path: '/dev/input/event0', name: 'Mouse' }]
 ```
 
 ### Class: DeviceListener
 Listens to a device's input stream
-- **constructor(device, [...args]):**
-    - **device:** The device to listen to (e.g. `event0`)
+- **constructor(path, [...args]):**
+    - **path:** The path of the interface to listen to (e.g. `/dev/input/event0`)
     - **args:** Args to pass to the EventEmitter constructor
 - **stop():** Destroys the read stream and stops listening for input.
 - events
@@ -33,7 +34,7 @@ Example:
 ```js
 import { DeviceListener } from 'evdevlib';
 
-let listener = new DeviceListener('event0');
+let listener = new DeviceListener('/dev/input/event0');
 listener.on('data', input => console.log(input));
 listener.on('error', error => console.log('Error reading device input:', error));
 console.log('Listening for input...');

@@ -1,0 +1,27 @@
+{
+  "name": "node-evdev",
+  "version": "1.0.0",
+  "description": "A small package for listening to Linux evdev (/dev/input/eventX) device streams in Node.js",
+  "keywords": [
+    "evdev",
+    "linux",
+    "input",
+    "events",
+    "devices"
+  ],
+  "homepage": "https://github.com/kgurchiek/node-evdev#readme",
+  "bugs": {
+    "url": "https://github.com/kgurchiek/node-evdev/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgurchiek/node-evdev.git"
+  },
+  "license": "ISC",
+  "author": "kgurchiek",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "linux-events": "^1.0.0"
+  }
+}

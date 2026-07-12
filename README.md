@@ -1,4 +1,4 @@
-# linux-events
+# evdevlib
 A small package for listening to Linux evdev (/dev/input/eventX) device streams in Node.js
 
 ## Usage
@@ -9,7 +9,7 @@ Lists devices in `/dev/input`.
 
 Example:
 ```js
-import { listDevices } from 'node-evdev';
+import { listDevices } from 'evdevlib';
 
 console.log(listDevices()); // Prints: [ { device: 'event0' }]
 console.log(listDevices({ info: true })); // Prints: [ { device: 'event0', name: 'Mouse' }]
@@ -31,7 +31,7 @@ Listens to a device's input stream
 
 Example:
 ```js
-import { DeviceListener } from 'node-evdev';
+import { DeviceListener } from 'evdevlib';
 
 let listener = new DeviceListener('event0');
 listener.on('data', input => console.log(input));
